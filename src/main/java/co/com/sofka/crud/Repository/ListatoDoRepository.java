@@ -1,12 +1,13 @@
 package co.com.sofka.crud.Repository;
 
-import co.com.sofka.crud.Entities.TodoEntity;
+import co.com.sofka.crud.Entities.TodoEntityList;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface TodoRepository extends CrudRepository<TodoEntity, Long>
+public interface ListatoDoRepository extends CrudRepository<TodoEntityList, Long>
 {
+
 
 }
