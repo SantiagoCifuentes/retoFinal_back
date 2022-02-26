@@ -5,20 +5,20 @@ import co.com.sofka.crud.Entities.TodoEntity;
 
 import java.util.List;
 
-public class TodoListaModel
+public class TodoListaDTO
 {
 
     private String name;
     private Long id;
     private List<TodoEntity> todoEntityList;
 
-    public TodoListaModel(String name, Long id, List<TodoEntity> todoEntityList) {
+    public TodoListaDTO(String name, Long id, List<TodoEntity> todoEntityList) {
         this.name = name;
         this.id = id;
         this.todoEntityList = todoEntityList;
     }
 
-    public TodoListaModel() {
+    public TodoListaDTO() {
 
     }
 

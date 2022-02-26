@@ -10,12 +10,20 @@ public class TodoEntityList
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    @Column(length = 25, nullable = false)
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "to_do_list_id")
     private List<TodoEntity> toDoListaModel;
+
+
+    public List<TodoEntity> getToDoListaModel() {
+        return toDoListaModel;
+    }
+
+    public void setToDoListaModel(List<TodoEntity> toDoListaModel) {
+        this.toDoListaModel = toDoListaModel;
+    }
 
     public Long getId() {
         return id;
@@ -33,13 +41,7 @@ public class TodoEntityList
         this.name = name;
     }
 
-    public List<TodoEntity> getToDoListaModel() {
-        return toDoListaModel;
-    }
 
-    public void setToDoListaModel(List<TodoEntity> toDoListaModel) {
-        this.toDoListaModel = toDoListaModel;
-    }
 
     public TodoEntityList(Long id, String name, List<TodoEntity> toDoListaModel) {
         this.id = id;

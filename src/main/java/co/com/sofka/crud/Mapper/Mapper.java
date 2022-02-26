@@ -2,52 +2,60 @@ package co.com.sofka.crud.Mapper;
 
 import co.com.sofka.crud.Entities.TodoEntityList;
 import co.com.sofka.crud.Entities.TodoEntity;
-import co.com.sofka.crud.Model.TodoModel;
-import co.com.sofka.crud.Model.TodoListaModel;
+import co.com.sofka.crud.Model.TodoDTO;
+import co.com.sofka.crud.Model.TodoListaDTO;
 
 public class Mapper
 {
     //Según entendí, estos métodos se realizan para poder manipular los objetos de manera más organizada
 
     //convirtiendo  lista de entidad a modelo
-    public static TodoListaModel mapEntityListToListModel(TodoEntityList todoEntityList){
-        TodoListaModel toDoListaModel = new TodoListaModel();
-        toDoListaModel.setTodoEntityList(todoEntityList.getToDoListaModel());
-        toDoListaModel.setId(todoEntityList.getId());
-        toDoListaModel.setName(todoEntityList.getName());
-        return  toDoListaModel;
+    public static TodoListaDTO mapEntityListToListModel(TodoEntityList todoEntityList){
+        TodoListaDTO toDoListaDTO = new TodoListaDTO();
+        toDoListaDTO.setTodoEntityList(todoEntityList.getToDoListaModel());
+        toDoListaDTO.setId(todoEntityList.getId());
+        toDoListaDTO.setName(todoEntityList.getName());
+        return toDoListaDTO;
 
     }
 
+
+
     //convirtiendo  lista de modelo a entidad
-    public static TodoEntityList mapListToListEntity(TodoListaModel todoListaModel ){
+    public static TodoEntityList mapListToListEntity(TodoListaDTO todoListaDTO){
         TodoEntityList toDoListaEntity = new TodoEntityList();
-        toDoListaEntity.setToDoListaModel(todoListaModel.getTodoEntityList());
-        toDoListaEntity.setName(todoListaModel.getName());
-        toDoListaEntity.setId(todoListaModel.getId());
+        toDoListaEntity.setName(todoListaDTO.getName());
+        toDoListaEntity.setId(todoListaDTO.getId());
+        toDoListaEntity.setToDoListaModel(todoListaDTO.getTodoEntityList());
         return toDoListaEntity;
     }
 
-    public static TodoModel mapTodoEntitytoTodoModel (TodoEntity todoEntity)
+
+
+
+
+    public static TodoDTO mapTodoEntitytoTodoModel (TodoEntity todoEntity)
     {
-        TodoModel todoModel = new TodoModel();
-        todoModel.setName(todoEntity.getName());
-        todoModel.setId(todoEntity.getId());
-        todoModel.setCompleted(todoEntity.isCompleted());
-        return todoModel;
+        TodoDTO todoDTO = new TodoDTO();
+        todoDTO.setName(todoEntity.getName());
+        todoDTO.setId(todoEntity.getId());
+        todoDTO.setCompleted(todoEntity.isCompleted());
+        return todoDTO;
 
     }
 
-    public  static  TodoEntity mapTodoModeltoTodoEntity (TodoModel todoModel)
+    public  static  TodoEntity mapTodoModeltoTodoEntity (TodoDTO todoDTO)
     {
         TodoEntity todoEntity = new TodoEntity();
-        todoEntity.setName(todoModel.getName());
-        todoEntity.setCompleted(todoModel.isCompleted());
-        todoEntity.setId(todoModel.getId());
+        todoEntity.setName(todoDTO.getName());
+        todoEntity.setCompleted(todoDTO.isCompleted());
+        todoEntity.setId(todoDTO.getId());
 
         return todoEntity;
 
     }
+
+
 
 
 

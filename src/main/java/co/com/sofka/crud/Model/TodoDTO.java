@@ -1,23 +1,21 @@
 package co.com.sofka.crud.Model;
 
-import javax.persistence.Entity;
 
-@Entity
-public class TodoModel {
+public class TodoDTO {
 
     private Long id;
     private String name;
     private boolean completed;
     private Long groupListId;
 
-    public TodoModel(Long id, String name, boolean completed, Long groupListId) {
+    public TodoDTO(Long id, String name, boolean completed, Long groupListId) {
         this.id = id;
         this.name = name;
         this.completed = completed;
         this.groupListId = groupListId;
     }
 
-    public TodoModel() {
+    public TodoDTO() {
 
     }
 
