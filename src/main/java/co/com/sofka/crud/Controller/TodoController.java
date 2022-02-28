@@ -27,6 +27,7 @@ public class TodoController {
 
 
     //guarda un todo por lista
+    @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "/todolist")
     public TodoListaDTO save(@RequestBody TodoListaDTO todoListaDTO){
         return listaToDoService.createToDoList(todoListaDTO);
@@ -34,6 +35,7 @@ public class TodoController {
 
     //obtener los todos de la lista
 
+    @CrossOrigin(origins = "http://localhost:3000") //si no ponía este cross origins aquí , me tiraba error
     @GetMapping(value = "/todos")
     public Iterable<TodoEntityList> findTodos() {
         return listaToDoService.obtenerTodos();
